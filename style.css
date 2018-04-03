@@ -1,0 +1,343 @@
+/*style.css*/
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "GRAPHIK";
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    /*justify-content: center;*/
+    transition: all 0.5s ease;
+}
+
+.station {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #d4002a;
+}
+
+.station-item {
+    position: relative;
+    display: flex;
+    flex-basis: 200px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    box-shadow: 1px 0 0 #cf173b inset;
+    border-left: 1px solid #c50027;
+    transition: all 0.5s ease;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.station-item:first-child {
+    display: none;
+}
+
+.station-item:last-child {
+    border-right: 1px solid #cf173b;
+}
+
+.station-item:hover {
+    cursor: pointer;
+}
+
+.station-item:last-child::before {
+    width: 1px;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    content: "";
+    height: 100%;
+    background-color: #c50027;
+}
+
+.station-item:hover::after {
+    height: 2px;
+    background-color: #FFF;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nr-logo {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background-image: url("images/nr.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.services {
+    padding-top: 100px;
+    display: flex;
+    height: 100%;
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.service-container {
+    width: 530px;
+    border-radius: 10px;
+    background-color: #FFF;
+    border: 2px solid lightgrey;
+    padding: 10px;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid lightgrey;
+    padding: 10px 0 10px 0;
+    transition: background-color 0.25s ease, height 0.5s ease;
+}
+
+.service-item:hover {
+    background-color: #f0f0f0;
+}
+
+.service-item:first-child {
+    border-top: 2px solid lightgrey;
+}
+
+.service-from {
+    margin: 5px;
+    text-align: center;
+}
+
+.service-route-status-container {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.service-status-info {
+    display: flex;
+    padding: 10px 10px 5px 10px;
+    justify-content: center;
+    font-weight: 600;
+}
+
+span.service-status {
+    display: flex;
+    align-items: center;
+}
+
+.service-route-info {
+    padding: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-more-info {
+    align-self: flex-end;
+    width: 20px;
+    margin-left: auto;
+}
+
+.service-status-info--time {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+    position: relative;
+}
+
+.delayed-cancelled-time {
+    color: lightgrey;
+}
+
+.delayed-cancelled-time::after {
+    content: "";
+    display: block;
+    width: 125%;
+    height: 2px;
+    background-color: lightgrey;
+    position: absolute;
+    top: 7px;
+    left: -7px;
+    transform: rotate(20deg);
+}
+
+.delayed-status {
+    color: #f00;
+    font-weight: 600;
+}
+
+.ontime-status {
+    color: green;
+}
+
+.expected-depart-time {
+    color: #f00;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.service-status-info--status {
+    font-size: 12px;
+}
+
+.service-route-info--destination {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.service-route-info--via {
+    font-size: 12px;
+}
+
+.service-status-info--platform {
+    margin-left: auto;
+    font-size: 12px;
+
+}
+
+.service-route-info--platform {
+
+}
+
+.expanded-route-info {
+    max-height: 0;
+    transform-origin: left;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    padding: 0 20px 0 20px;
+        opacity: 0;
+}
+
+.route-line-container {
+    display: flex;
+    width: 30px;
+
+}
+
+.route-line {
+    position: relative;
+    width: 3px;
+    height: 100%
+    margin: 10px 20px 10px 20px;
+    background-color: #cf173b;
+}
+
+.route-line::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    left: -7px;
+    top: 0px;
+    background-color: #FFF;
+    border: 3px solid #cf173b;
+    border-radius: 20px;
+}
+
+.route-line::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    left: -7px;
+    bottom: 0px;
+    background-color: #FFF;
+    border: 3px solid #cf173b;
+    border-radius: 20px;
+}
+
+.route-stations {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.station-name {
+    padding-top:10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.station-name::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 5.5px;
+    height: 5.5px;
+    left: -34px;
+    bottom: 0px;
+    background-color: #FFF;
+    border: 3px solid #cf173b;
+    border-radius: 20px;
+}
+
+.station-name:first-child::before, .station-name:last-child::before {
+    opacity: 0;
+}
+
+.station-name:first-child {
+    padding-top: 0;
+}
+
+    .station-name:last-child {
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 550px) {
+    .stations {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .station-item {
+        padding: 10px;
+        margin: 0;
+        box-shadow: 0 2px 0px -2px gray inset;
+        border-bottom: 1px solid #c50027;
+        border-left: none;
+        flex-basis: 100px;
+    }   
+
+    .station-item:first-child {
+        display: flex;
+    }
+
+    .station-item::after {
+        display: none;
+    }
+
+    .services {
+        padding-top: 20px;
+        align-items: flex-start;
+        background: #FFF;
+    }
+
+    .service-container {
+        border-radius: 0;
+        border: none;
+    }
+
+
+}
